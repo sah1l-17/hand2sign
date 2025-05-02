@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}About - Sign Language Recognition{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 offset-lg-2 text-center mb-5">
+        <h1 class="display-4 mb-4">About the Project</h1>
+        <p class="lead">
+            This sign language recognition system was developed to bridge the communication gap between the deaf/hard-of-hearing community and those who don't know sign language.
+        </p>
+    </div>
+</div>
+
+<div class="row mb-5">
+    <div class="col-lg-6">
+        <div class="card h-100">
+            <div class="card-header bg-primary text-white">
+                <h3>Technology Stack</h3>
+            </div>
+            <div class="card-body">
+                <h5>This project uses:</h5>
+                <ul>
+                    <li><strong>MediaPipe:</strong> For real-time hand tracking and landmark detection</li>
+                    <li><strong>TensorFlow:</strong> To train and run the LSTM model for gesture recognition</li>
+                    <li><strong>Flask:</strong> Web framework for the application</li>
+                    <li><strong>OpenCV:</strong> For camera feed processing and visualization</li>
+                    <li><strong>Bootstrap:</strong> Frontend framework for responsive design</li>
+                </ul>
+                <h5 class="mt-4">Model Architecture:</h5>
+                <p>
+                    The recognition model uses a sequence-based LSTM (Long Short-Term Memory) neural network architecture to analyze temporal hand movement patterns. It processes 30 frames of hand landmark data to make predictions.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-6">
+        <div class="card h-100">
+            <div class="card-header bg-primary text-white">
+                <h3>How It Works</h3>
+            </div>
+            <div class="card-body">
+                <ol>
+                    <li>
+                        <strong>Capture:</strong> The system captures video frames from your webcam in real-time
+                    </li>
+                    <li>
+                        <strong>Hand Detection:</strong> MediaPipe identifies hand landmarks (21 points per hand)
+                    </li>
+                    <li>
+                        <strong>Feature Extraction:</strong> The system extracts relevant features from the landmarks
+                    </li>
+                    <li>
+                        <strong>Sequence Analysis:</strong> An LSTM model analyzes the sequence of landmarks over time
+                    </li>
+                    <li>
+                        <strong>Classification:</strong> The model predicts which sign is being performed
+                    </li>
+                    <li>
+                        <strong>Display:</strong> The result is shown on screen with a confidence score
+                    </li>
+                </ol>
+                <p class="mt-3">
+                    The model was trained on multiple examples of each sign, performed with variations to improve robustness.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-8 offset-lg-2">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h3>Future Improvements</h3>
+            </div>
+            <div class="card-body">
+                <p>
+                    This project is constantly evolving. Some planned improvements include:
+                </p>
+                <ul>
+                    <li>Adding more signs to the vocabulary</li>
+                    <li>Improving model accuracy and robustness</li>
+                    <li>Adding sentence-level recognition for continuous signing</li>
+                    <li>Developing a mobile application version</li>
+                    <li>Supporting different sign languages (currently focused on ASL)</li>
+                    <li>Adding text-to-sign translation capabilities</li>
+                </ul>
+                <p class="mt-4">
+                    <strong>Note:</strong> This project is intended for educational and demonstration purposes. For critical communication needs, please consult with professional sign language interpreters.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}`

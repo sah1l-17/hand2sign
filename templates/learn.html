@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Learn Signs - Sign Language Recognition{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-12 mb-4">
+        <h1>Learn Sign Language</h1>
+        <p class="lead">This page contains video tutorials for all the signs our system can recognize. Watch these videos to learn how to perform each sign correctly.</p>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="list-group">
+            {% for sign, link in signs.items() %}
+            <a href="#{{ sign|replace(' ', '-') }}" class="list-group-item list-group-item-action">
+                {{ sign|capitalize }}
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% for sign, link in signs.items() %}
+<div class="row mb-5" id="{{ sign|replace(' ', '-') }}">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h3>{{ sign|capitalize }}</h3>
+            </div>
+            <div class="card-body">
+                <div class="ratio ratio-16x9">
+                    <iframe src="{{ link }}" title="{{ sign }}" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h3>Practice Tips</h3>
+            </div>
+            <div class="card-body">
+                <h5>How to practice "{{ sign }}":</h5>
+                <ul class="mt-3">
+                    <li>Watch the video carefully, noting the hand position and movement</li>
+                    <li>Practice in front of a mirror to compare your sign with the video</li>
+                    <li>Pay attention to the exact hand shape and orientation</li>
+                    <li>Practice the sign multiple times to build muscle memory</li>
+                    <li>Use the "Live Prediction" page to test if your sign is recognized correctly</li>
+                </ul>
+                <div class="mt-4">
+                    <a href="{{ url_for('prediction_page') }}" class="btn btn-success">Test your skills</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
